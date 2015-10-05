@@ -1,0 +1,54 @@
+/*
+** main.c for ginterface in /home/fromen_l/rendu/PSU_2014_zappy/gfx_client
+** 
+** Made by Loïc Froment
+** Login   <fromen_l@epitech.net>
+** 
+** Started on  Fri Jun 19 16:53:05 2015 Loïc Froment
+** Last update Tue Jun 23 17:32:24 2015 Loïc Froment
+*/
+
+#include "SDL.h"
+#include "SDL_image.h"
+#include "map.h"
+
+int	main(int ac, char **av)
+{
+  create_win();
+  return (0);
+}
+
+int	create_win()
+{
+  SDL_Window *window;
+  SDL_Event e;
+
+  SDL_Init(SDL_INIT_VIDEO);
+  window = SDL_CreateWindow(
+			    "An SDL2 window",                  // window title
+			    SDL_WINDOWPOS_UNDEFINED,           // initial x position
+			    SDL_WINDOWPOS_UNDEFINED,           // initial y position
+			    640,                               // width, in pixels
+			    480,                               // height, in pixels
+			    SDL_WINDOW_OPENGL                  // flags - see below
+			    );
+  if (window == NULL) {
+    printf("Could not create window: %s\n", SDL_GetError());
+    return (1);
+  }
+  while (SDL_PollEvent(&e))
+      if (e.type == SDL_KEYDOWN)
+	  SDL_Log("User just pressed down a key!");
+  while (e.type != SDL_QUIT)
+    {
+      SDL_Delay(3000);
+    }
+  return 0;
+}
+
+
+int	draw_map(int x, int y)
+{
+  return (0);
+}
+
